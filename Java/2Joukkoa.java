@@ -25,7 +25,7 @@ public class KaksiJoukkoa {
 
         // Joukkojen unioni
         Set<Integer> unioni = new HashSet<Integer>();
-        unioni.addAll(A);
+        unioni.addAll(A); 
         unioni.addAll(B);
         System.out.println("Joukkojen unioni on: " + unioni);
 
