@@ -36,7 +36,7 @@ int lue(SOCKET conn, char *buf, int koko);
 
 #define MAX_KOKO 1000
 #define AV_PIT 128
-
+ 
 #define LOHKO 0x4000
 #define windowBits 15
 #define ENABLE_ZLIB_GZIP 32
