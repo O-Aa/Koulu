@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+		<hr>
+		<div id="otsikot">
+			<h1>Otsikko</h1>
+			<p>Jotakin tekstiä…</p>
+			<h2>Otsikko 2</h2>
+			<ol>
+			  <li>1</li>
+			  <li>2</li>
+			  <li>3</li>
+			  <li>4</li>
+			  <li>5</li>
+			</ol>
+			<br>
+			<p>Jotakin tekstiä</p>
+			<hr>
+			<p>Jotakin tekstiä</p>
+		</div>
+		<button id="kaanna">Käännä</button>
+		
+	<script>
+	
+		// Elementtien kääntämiseen 
+		document.getElementById('kaanna').onclick = (function(){  
+			
+			// Tarvittavat muuttujat, 
+			x = document.getElementById('otsikot');
+			var lista = x.childNodes;   							//Tehdään chilnodeista lista
+			var lapsetyht = lista.length; 							// Lasketaan tehdystä listasta childnodejen määrä
+			var listaol = document.getElementsByTagName("ol");
+			var listali = document.getElementsByTagName('li');
+			
+			// Pyöritetään silmukkaa väärään suuntaan, poistetaan childnodet ja
+			// sijoitetaan ne uusille paikoille.
+			for(var i = lapsetyht-1; i >= 0; i--) { 
+				var y = x.removeChild(lista[i]);    				
+				x.appendChild(y);                  					
+			}
+			// Käydään silmukalla listali lista läpi, etsitään kaikki li elementit 
+			// ja järjestetään ne uudelleen.
+			for (var i = listali.length; i-- ;) {
+				listali[i].parentNode.appendChild(listali[i]);
+			}
+			
+			// Käydään silmukalla listaol lista läpi ja etsitään kaikki ol elementit
+			// Jos ol:ssa sijaitsee "reversed", poistetaan se, muuten lisätään attribuutiksi "reversed"
+			for (var i = 0; i < listaol.length; i++){				
+				if(listaol[i].hasAttribute("reversed","")){
+					listaol[i].removeAttribute("reversed","");
+				}
+				else {
+					listaol[i].setAttribute("reversed","");
+				}
+			}});
+	</script>
+</body>
+</html>
