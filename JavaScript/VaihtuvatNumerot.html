@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head>
+
+<title>Vaihtaja</title>
+
+</head>
+
+<meta charset="UTF-8">
+
+ <!-- Tehdään taulukolle tyyli -->
+<style>
+table, td {
+  border: 1px solid black;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+  
+</style>
+<body>
+<script>
+
+<!-- Sivun avautuessa ajetaan piirraNumerot -->
+window.onload=piirraNumerot;
+
+<!-- Funktio, missä piirretään numerot taulukkoon -->
+function piirraNumerot()
+{
+	var arr=[1,2,3,8,4,7,6,5];
+	
+		document.getElementById("eka").innerHTML = arr[0];
+		document.getElementById("toka").innerHTML = arr[1];
+		document.getElementById("kolmas").innerHTML = arr[2];
+		document.getElementById("neljas").innerHTML = arr[3];
+		document.getElementById("kuudes").innerHTML = arr[4];
+		document.getElementById("seitsemas").innerHTML = arr[5];
+		document.getElementById("kahdeksas").innerHTML = arr[6];
+		document.getElementById("yhdeksas").innerHTML = arr[7];		
+			
+}
+<!-- Funktio, missä vaihdetaan numeroiden paikkaa myötäpäivään -->
+function vaihtaja()
+{
+	<!-- Ensin tallennetaan numeroiden vanhat paikat var vanhoihin -->
+	
+	var vanhat=[1,2,3,8,4,7,6,5];
+	vanhat[0]=document.getElementById("neljas").innerHTML;
+	vanhat[1]=document.getElementById("eka").innerHTML;
+	vanhat[2]=document.getElementById("toka").innerHTML;
+	vanhat[3]=document.getElementById("seitsemas").innerHTML;
+	vanhat[4]=document.getElementById("kolmas").innerHTML;
+	vanhat[5]=document.getElementById("kahdeksas").innerHTML;
+	vanhat[6]=document.getElementById("yhdeksas").innerHTML;
+	vanhat[7]=document.getElementById("kuudes").innerHTML;
+	
+		<!-- Sitten haetaan var vanhoista numerot uusiin paikkoihin niin, että ne pyörivät myötäpäivään -->
+		document.getElementById("eka").innerHTML = vanhat[0];
+		document.getElementById("toka").innerHTML = vanhat[1];
+		document.getElementById("kolmas").innerHTML = vanhat[2];
+		document.getElementById("neljas").innerHTML = vanhat[3];
+		document.getElementById("kuudes").innerHTML = vanhat[4];
+		document.getElementById("seitsemas").innerHTML = vanhat[5];
+		document.getElementById("kahdeksas").innerHTML = vanhat[6];
+		document.getElementById("yhdeksas").innerHTML = vanhat[7];		
+}
+
+<!-- Asetetaan pyörimisnopeudeksi 1s, eli ajetaan funktiota vaihtaja() sekunnin välein -->
+window.setInterval(function(){
+  vaihtaja();
+}, 1000);
+
+
+</script>
+
+<!-- Luodaan taulukko -->
+<table>
+  <tr>
+    <td id="eka"> </td>
+    <td id="toka"> </td>
+    <td id="kolmas"> </td>
+  </tr>
+  <tr>
+    <td id="neljas"> </td>
+    <td id="viides"> </td>
+    <td id="kuudes"> </td>
+  </tr>
+  <tr>
+    <td id="seitsemas"> </td>
+    <td id="kahdeksas"> </td>
+    <td id="yhdeksas"> </td>
+  </tr>
+</table>
+<!-- <button onclick="paivita()">Vaihda!</button>  -->
+
+ </body></html>
