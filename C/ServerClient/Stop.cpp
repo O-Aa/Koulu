@@ -1,5 +1,5 @@
 //Ohjelma, joka lopettaa siististi Client-ohjelman
-//Tämä Visual Studioa varten
+//Tämä Visual Studioa varten 
 
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS
