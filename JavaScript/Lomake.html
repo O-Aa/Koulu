@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+
+  <p id ="apumuuttuja">Lisätiedot:</p><br>
+  <textarea id ="tekstialue">Lisää teksti</textarea><br>
+  <br>Sukupuoli<br>
+  <input type="radio" name="sukupuoli" id="Mies">Mies<br>
+  <input type="radio" name="sukupuoli" id="Nainen">Nainen<br>
+  <input type="radio" name="sukupuoli" id="Unknown">En halua kertoa<br><br>
+  
+  Ajokortti<br>
+  <input type="checkbox" name="ajokortti" id="Auto">Auto</input><br>
+  <input type="checkbox" name="ajokortti" id="Rekka">Rekka</input><br>
+  <input type="checkbox" name="ajokortti" id="Moottoripyörä">Moottoripyörä</input><br>
+  <input type="checkbox" name="ajokortti" id="Mopo">Mopo</input><br>
+  <input type="checkbox" name="ajokortti" id="Ei korttia">Ei ajokorttia</input><br><br>
+  
+  <button onclick="Alert()">Tulosta tiedot</button>
+</form>
+
+<script>
+function Alert() {
+    
+var sukupuoli = document.getElementsByName("sukupuoli");
+var ajokortti = document.getElementsByName("ajokortti");
+
+// Lisätiedot
+var tekstialue = document.getElementById("tekstialue").value;
+document.getElementById("apumuuttuja").innerHTML = tekstialue;
+alert("Lisätiedot: "+tekstialue);  
+
+ // Sukupuoli
+	if (sukupuoli[0].checked == true){
+		alert("Sukupuoli : Mies")
+	}
+	else if (sukupuoli[1].checked == true){
+		alert("Sukupuoli : Nainen")
+	}
+	else {
+		alert("Sukupuoli : Et ilmoittanut sukupuolta.")
+    }
+
+// Ajokortti
+for(i = 0; i<=ajokortti.length; i++){
+    if (ajokortti[i].checked == true){
+        alert("Ajokortti: " + ajokortti[i].id);
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
