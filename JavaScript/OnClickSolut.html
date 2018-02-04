@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <style>
+  table {
+  border-collapse: collapse;
+}
+td{ width:70px; height:70px;text-align:center;vertical-align:middle;border:1px solid black;font-size:1;}
+#taulukko2 td, #taulukko1 td {background: #FFFAFA;}
+		#taulukko2 td { cursor:pointer; }
+		#taulukko2 td:hover{ opacity:1.0; }
+		.vasen{float:left;}
+		.oikea{width: 75%; float:right;}
+		.highlight{
+			background: #00FF7F!important;	
+		}
+    </style>
+		<div class="vasen" id="taulukko1">
+			<table>
+				<tr>
+					<td class="solu" id="1">1</td>
+					<td class="solu" id="2">2</td>
+					<td class="solu" id="3">3</td>
+				</tr>
+				<tr>
+					<td class="solu" id="4">4</td>
+					<td class="solu" id="5">5</td>
+					<td class="solu" id="6">6</td>
+				</tr>
+				<tr>
+					<td class="solu" id="7">7</td>
+					<td class="solu" id="8">8</td>
+					<td class="solu" id="9">9</td>
+				</tr>
+			</table>
+		</div>
+		<div class="oikea" id="taulukko2">
+		</div>
+    </div>
+	<script>
+		// Funktio, jonka avulla kopioitu taulukko ilmestyy html taulukon viereen, kun sivu latautuu
+		window.onload = function(){
+			// Haetaan taulukko1 elementti ja kopioidaan se
+			htmltaulu = document.getElementsByTagName("table")[0];
+			kopiotaulu = htmltaulu.cloneNode(true);
+		    document.getElementById('taulukko2').appendChild(kopiotaulu);
+
+			// Lisätään jokaiseen soluun addeventlisteneri
+			var elementti = document.getElementsByClassName('solu');
+			for(var i=0;i<elementti.length;i++){
+				if(i > 8){
+					elementti[i].addEventListener("click", function(){ highlightCell(this.innerHTML) }, false);
+				}
+			}
+		}
+		// Funktio, joka hakee solun id:n ja vaihtaa kyseisen solun varia
+		function highlightCell(id){
+			var id = document.getElementById(id);
+			id.classList.add("highlight");
+		// Vaihtaa solun taustavärin takaisin normaaliksi puolen sekunnin jälkeen
+			window.setTimeout(function () {
+			  id.classList.remove("highlight");
+		  }, 500);
+		}
+	</script>
+</body>
+</html>
