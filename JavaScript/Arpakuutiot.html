@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><head>
+
+<title>Arpakuutiot</title>
+
+</head>
+
+<meta charset="UTF-8">
+
+<body>
+<script>
+
+
+//Ladataan kuvat valmiiksi
+var face0=new Image()
+face0.src="11.gif"
+var face1=new Image()
+face1.src="22.gif"
+var face2=new Image()
+face2.src="33.gif"
+var face3=new Image()
+face3.src="44.gif"
+var face4=new Image()
+face4.src="55.gif"
+var face5=new Image()
+face5.src="66.gif"
+</script>
+
+<!-- Luodaan nopat sivulle alkuarvona 1 -->
+<img src="11.gif" name="noppa0">
+<img src="11.gif" name="noppa1">
+<img src="11.gif" name="noppa2">
+<img src="11.gif" name="noppa3">
+<img src="11.gif" name="noppa4">
+<img src="11.gif" name="noppa5">
+<img src="11.gif" name="noppa6">
+<img src="11.gif" name="noppa7">
+<img src="11.gif" name="noppa8">
+<img src="11.gif" name="noppa9">
+<form>
+<!-- Tehdään heitto-nappi -->
+<input type="button" value="Heita noppia!" onClick="heitaNoppaa()">
+</form>
+<script>
+    
+function heitaNoppaa(){
+
+var tulos=0;  <!-- Lasketaan tähän muuttujaan yhteistulos nopista -->
+
+<!-- Looppi, missä heitetään kuutta noppaa -->
+for (loop=0; loop < 10; loop++) {
+
+    var nopanluku=Math.round(Math.random()*5)
+    document.images["noppa"+loop].src=eval("face"+nopanluku+".src")
+
+    if(nopanluku==0) tulos = tulos + 1;
+    if(nopanluku==1) tulos = tulos + 2;
+    if(nopanluku==2) tulos = tulos + 3;
+    if(nopanluku==3) tulos = tulos + 4;
+    if(nopanluku==4) tulos = tulos + 5;
+    if(nopanluku==5) tulos = tulos + 6;
+    }
+document.title = tulos; <!-- Tulostetaan tulos titleen -->
+
+}
+</script>
+
+ </body></html>
